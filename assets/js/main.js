@@ -48,3 +48,57 @@ const mailList = [
     userMail.value=" ";
   });
 
+//VARIABLES DECLARATION AND INITIALIZATION
+
+//button to start game
+const playButton = document.getElementById('btn-play');
+
+//chosen numbers
+const numbers = document.getElementById('output-numeri')
+
+//Player 1 (user) number
+let outputPlayer1;
+
+//Player 1 (computer) number
+let outputPlayer2;
+
+//Final result
+let outputResult;
+
+//FUNCTION CLICK TO START GAME
+
+playButton.addEventListener("click", function(){
+
+  numbers.innerHTML = " ";
+
+  //random number for Player1 (user)
+  let player1Number = Math.ceil(Math.random() * 6);
+  //random number for Player2 (computer)
+  let player2Number = Math.ceil(Math.random() * 6);
+
+  //outptut element creation for numbers
+  outputPlayer1 = document.createElement('div');
+  outputPlayer2 = document.createElement('div');
+
+  outputPlayer1.innerHTML = `you got  ${player1Number}`;
+  outputPlayer2.innerHTML = `pc got  ${player2Number}`;
+  numbers.append(outputPlayer1);
+  numbers.append(outputPlayer2);
+
+  //outptut element creation for winner declaration
+  outputResult = document.createElement('div');
+  outputResult.innerHTML = outputResult;
+
+  if (player1Number > player2Number){
+    outputResult = 'Great !! You won !!';
+
+  }else if(player2Number > player1Number ){
+    outputResult = 'what a pity !!! You lost !!';
+
+  }else{
+    outputResult = 'no winner !! better than nothing !!';
+  }
+  
+  numbers.append(outputResult);
+
+})
