@@ -16,22 +16,20 @@ let mailList = [
   ];
   
   // if mail is not present on authorized list
-  //let checked = true;
   
   // button submit check mail
   const submitButton = document.getElementById("checkBtn");
   
-  // usermail
-  let userMail = document.getElementById("inputMail");
-  
-  // output for usermail
-  const outputMail = document.getElementById("outputMail");
   
   //FUNCTION CLICK TO CHECK MAIL AUTHORIZATION
   submitButton.addEventListener("click", function(){
 
-    // let thisMail = mailList[i];
-    // console.log(thisMail);
+    
+  // usermail
+  let userMail = document.getElementById("inputMail").value;
+  
+  // output for usermail
+  let outputMail = document.getElementById("outputMail");
   
     //Conditional statement for authorization
     for(let i = 0; i < mailList.length; i++){
@@ -50,15 +48,6 @@ let mailList = [
       }
     }
     
-  //   // Output print on page
-  //   if(checked == true){
-  //   }
-  //   else{
-  //     outputMail.innerHTML = 'Ci dispiace, non sei autorizzat(a/e/i/o/u/y) a giocare! Inserire una mail valida.';
-  //   }
-  //   checked=false;
-  //   userMail.value=" ";
-  // });
 
 //VARIABLES DECLARATION AND INITIALIZATION
 
@@ -122,7 +111,7 @@ playButton.addEventListener("click", function(){
   numbers.append(outputResult);
 
   
-document.getElementById('winsNumber').innerText = `you won ${player1wins.length} times !!`
-document.getElementById('winsNumber').innerText = `pc won ${pcWins.length} times !!`
+document.getElementById('p1w').innerText = `you won ${player1wins.length} times !!`
+document.getElementById('p2w').innerText = `pc won ${pcWins.length} times !!`
 
 } ) } )
