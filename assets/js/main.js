@@ -2,7 +2,7 @@
 //VARIABLES DECLARATION AND INITIALIZATION
 
 //Authorized mail addresses
-const mailList = [
+let mailList = [
     "jessica.lastname@gmail.com",
     "michele.lastname@gmail.com",
     "topo.gigio@gmail.com",
@@ -16,37 +16,49 @@ const mailList = [
   ];
   
   // if mail is not present on authorized list
-  let checked = false;
+  //let checked = true;
   
   // button submit check mail
   const submitButton = document.getElementById("checkBtn");
   
   // usermail
-  let userMail = document.getElementById("inputMail").value;
+  let userMail = document.getElementById("inputMail");
   
   // output for usermail
   const outputMail = document.getElementById("outputMail");
   
   //FUNCTION CLICK TO CHECK MAIL AUTHORIZATION
   submitButton.addEventListener("click", function(){
+
+    // let thisMail = mailList[i];
+    // console.log(thisMail);
   
     //Conditional statement for authorization
     for(let i = 0; i < mailList.length; i++){
-      if (userMail === mailList[i]){
-        checked = true;
+      
+      if (userMail == mailList[i]){
+        
+        //checked = true;
+
+      outputMail.innerHTML = 'Buona fortuna!';
+
+      break;
+
+      } else if( i== (mailList.length - 1)){
+
+        outputMail.innerHTML = `Ci spiace, devi prima iscriverti !!`;
       }
     }
     
-    // Output print on page
-    if(checked === true){
-      outputMail.innerHTML = 'Buona fortuna!';
-    }
-    else{
-      outputMail.innerHTML = 'Ci dispiace, non sei autorizzat(a/e/i/o/u/y) a giocare! Inserire una mail valida.';
-    }
-    checked=false;
-    userMail.value=" ";
-  });
+  //   // Output print on page
+  //   if(checked == true){
+  //   }
+  //   else{
+  //     outputMail.innerHTML = 'Ci dispiace, non sei autorizzat(a/e/i/o/u/y) a giocare! Inserire una mail valida.';
+  //   }
+  //   checked=false;
+  //   userMail.value=" ";
+  // });
 
 //VARIABLES DECLARATION AND INITIALIZATION
 
@@ -64,6 +76,10 @@ let outputPlayer2;
 
 //Final result
 let outputResult;
+
+
+let player1wins = [];
+let pcWins = [];
 
 //FUNCTION CLICK TO START GAME
 
@@ -85,20 +101,28 @@ playButton.addEventListener("click", function(){
   numbers.append(outputPlayer1);
   numbers.append(outputPlayer2);
 
+  
+
   //outptut element creation for winner declaration
   outputResult = document.createElement('div');
   outputResult.innerHTML = outputResult;
 
   if (player1Number > player2Number){
     outputResult = 'Great !! You won !!';
+    player1wins.push('win');
 
   }else if(player2Number > player1Number ){
     outputResult = 'what a pity !!! You lost !!';
+    pcWins.push('win');
 
   }else{
-    outputResult = 'no winner !! better than nothing !!';
+    outputResult = 'no winner !! better than nothing !! ';
   }
   
   numbers.append(outputResult);
 
-})
+  
+document.getElementById('winsNumber').innerText = `you won ${player1wins.length} times !!`
+document.getElementById('winsNumber').innerText = `pc won ${pcWins.length} times !!`
+
+} ) } )
